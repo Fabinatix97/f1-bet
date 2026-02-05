@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+h1 {
+  @apply text-4xl font-bold text-slate-100 pt-2 pb-4;
+}
+
+h2 {
+  @apply text-2xl font-semibold text-slate-300 pt-2 pb-4;
+}
+
+body {
+  @apply bg-[#14141E] text-slate-300;
+}
+
+p {
+  @apply pb-4;
+}
