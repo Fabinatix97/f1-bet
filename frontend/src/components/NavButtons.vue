@@ -4,11 +4,17 @@ import { useRouter } from 'vue-router'
 import { Icon } from '@iconify/vue'
 import BetOverviewDialog from '@/components/BetOverviewDialog.vue'
 
-const props = defineProps<{
-  selected: boolean
-  backRoute?: string
-  nextRoute?: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    selected: boolean
+    showOverview?: boolean
+    backRoute?: string
+    nextRoute?: string
+  }>(),
+  {
+    showOverview: true,
+  },
+)
 
 const router = useRouter()
 const showOverviewDialog = ref(false)
@@ -40,6 +46,7 @@ const handleBack = () => {
 
     <!-- Overview Button -->
     <button
+      v-if="props.showOverview"
       @click="showOverviewDialog = true"
       class="bg-[#5B5B92] py-4 px-4 rounded-full font-bold text-slate-100 flex gap-1 items-center hover:bg-[#6B6BA2] transition-colors"
     >
