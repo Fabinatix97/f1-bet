@@ -57,7 +57,7 @@ const allStatementsAnswered = computed(() => {
 </script>
 
 <template>
-  <h1>Wahr oder Falsch?</h1>
+  <h1>Wahr oder falsch?</h1>
 
   <div v-for="statement in statements" :key="statement.id" class="mb-16">
     <h2>{{ statement.text }}</h2>
