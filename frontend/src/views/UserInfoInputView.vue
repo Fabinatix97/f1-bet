@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { Icon } from '@iconify/vue'
 import { useBetStore } from '@/stores/bet'
 import NavButtons from '@/components/NavButtons.vue'
 
@@ -21,7 +20,7 @@ const handleContinue = () => {
 </script>
 
 <template>
-  <main>
+  <main class="p-6">
     <h1>Dein Name</h1>
     <p>Bitte gib deinen Namen ein, um fortzufahren.</p>
     <div class="mt-6">
@@ -35,7 +34,12 @@ const handleContinue = () => {
     </div>
   </main>
 
-  <NavButtons :selected="userName.trim().length > 0" next-route="/mainbet/1" />
+  <NavButtons
+    :selected="userName.trim().length > 2"
+    :show-overview="false"
+    back-route="/explanation"
+    next-route="/mainbet/1"
+  />
 </template>
 
 <style scoped>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
+import NavButtons from '@/components/NavButtons.vue'
 </script>
 
 <template>
-  <main>
+  <main class="p-6">
     <h1>Aufbau</h1>
     <p>Diese Umfrage gliedert sich in zwei Abschnitte: eine Hauptwette und eine Nebenwette.</p>
     <p>
@@ -28,12 +28,6 @@ import { Icon } from '@iconify/vue'
       gutzumachen. Die Anzahl möglicher Punkte wird bei jeder Frage oben rechts angezeigt.
     </p>
   </main>
-  <div class="fixed bottom-6 right-6 z-50">
-    <div class="bg-[#E10600] py-4 px-4 rounded-full">
-      <RouterLink to="/user-info" class="font-bold text-slate-100 flex gap-1">
-        <Icon icon="mdi:arrow-right" class="text-2xl" />
-        <div>Weiter</div>
-      </RouterLink>
-    </div>
-  </div>
+
+  <NavButtons :selected="true" :show-overview="false" back-route="/" next-route="/user-info" />
 </template>
