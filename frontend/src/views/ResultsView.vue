@@ -5,7 +5,7 @@ import type { BetData } from '@/types/bet'
 import Pagination from '@/components/Pagination.vue'
 
 // Configuration: Change this number to match your total number of result views
-const TOTAL_RESULTS = 18
+const TOTAL_RESULTS = 10
 
 const betData = ref<BetData[]>([])
 

@@ -57,7 +57,7 @@ const tableData = computed(() => {
     const count = voteCounts.value.get(driver.id) || 0
     if (count > 0) {
       const users = props.betData
-        .filter((bet) => bet.sideBets.lastPlaceTeam === driver.id)
+        .filter((bet) => bet.sideBets.firstRaceWinner === driver.id)
         .map((bet) => bet.userName)
       result.push({
         driverName: driver.name,

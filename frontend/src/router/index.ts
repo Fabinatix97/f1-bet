@@ -3,8 +3,6 @@ import IntroView from '@/views/IntroView.vue'
 import ExplanationView from '@/views/ExplanationView.vue'
 import UserInfoInputView from '@/views/UserInfoInputView.vue'
 import ResultsView from '@/views/ResultsView.vue'
-import AuswertungView from '@/views/results/AuswertungView.vue'
-// Import individual Auswertung views if you need custom components for specific ones
 import MainBetView from '@/views/MainBetView.vue'
 import SideBetView from '@/views/SideBetView.vue'
 
@@ -149,12 +147,10 @@ const router = createRouter({
           name: 'auswertung9',
           component: () => import('@/views/results/Auswertung9View.vue'),
         },
-        // Dynamic route for all other Auswertungen (10-18+)
-        // You can override specific ones above if you need custom components
         {
-          path: ':id(\\d+)',
-          name: 'auswertung',
-          component: AuswertungView,
+          path: '10',
+          name: 'auswertung10',
+          component: () => import('@/views/results/Auswertung10View.vue'),
         },
       ],
     },

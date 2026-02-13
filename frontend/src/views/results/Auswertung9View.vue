@@ -80,11 +80,7 @@ const getVoteData = (teamId: number, driverId: number) => {
 
         <!-- Drivers -->
         <div class="bg-[#292941] grid grid-cols-2 gap-4 p-4">
-          <div
-            v-for="driver in team.drivers"
-            :key="driver.id"
-            class="bg-[#2D2D46] rounded-lg p-4"
-          >
+          <div v-for="driver in team.drivers" :key="driver.id" class="bg-[#2D2D46] rounded-lg p-4">
             <div class="flex items-center justify-between mb-2">
               <div class="text-slate-100 font-semibold">{{ driver.name }}</div>
               <div
@@ -94,12 +90,13 @@ const getVoteData = (teamId: number, driverId: number) => {
                 {{ getVoteData(team.id, driver.id).count }}
               </div>
             </div>
-            <div v-if="getVoteData(team.id, driver.id).users.length > 0" class="text-slate-300 text-sm">
+            <div
+              v-if="getVoteData(team.id, driver.id).users.length > 0"
+              class="text-slate-300 text-sm"
+            >
               {{ getVoteData(team.id, driver.id).users.join(', ') }}
             </div>
-            <div v-else class="text-slate-500 text-sm italic">
-              Keine Stimmen
-            </div>
+            <div v-else class="text-slate-500 text-sm italic">Keine Stimmen</div>
           </div>
         </div>
       </div>
