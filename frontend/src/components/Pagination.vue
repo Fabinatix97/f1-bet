@@ -91,8 +91,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="fixed bottom-6 left-6 right-6 z-50">
-    <div class="relative">
+  <div class="fixed bottom-6 left-6 right-6 z-50 flex justify-center">
+    <div class="relative w-fit max-w-full">
       <!-- Left Gradient Overlay -->
       <div
         v-if="showLeftGradient"
@@ -108,7 +108,7 @@ onUnmounted(() => {
       <!-- Scrollable Container -->
       <div
         ref="scrollContainer"
-        class="bg-[#14141E]/95 backdrop-blur-sm py-3 px-3 rounded-full overflow-x-auto scrollbar-hide relative"
+        class="w-fit max-w-full bg-[#14141E]/95 backdrop-blur-sm py-3 px-3 rounded-full overflow-x-auto scrollbar-hide relative"
       >
         <div class="flex items-center justify-start gap-1 min-w-max">
           <button
