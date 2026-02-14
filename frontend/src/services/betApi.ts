@@ -5,7 +5,11 @@
 import { useBetStore } from '@/stores/bet'
 import type { BetData } from '@/types/bet'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api'
+// Use relative /api in production (same origin); set VITE_API_BASE_URL=http://localhost:3000/api for local dev
+const API_BASE_URL =
+  typeof import.meta.env.VITE_API_BASE_URL === 'string' && import.meta.env.VITE_API_BASE_URL
+    ? import.meta.env.VITE_API_BASE_URL
+    : '/api'
 
 /**
  * Fetch all submitted bets (for results view)
