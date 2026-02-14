@@ -1,16 +1,29 @@
 /**
- * Example API service for submitting bet data
- *
- * When you're ready to integrate with your backend API, you can:
- * 1. Rename this file to betApi.ts
- * 2. Update the API_BASE_URL
- * 3. Implement error handling as needed
- * 4. Call submitBet() from your components (e.g., after completing all bets)
+ * API service for bet submission and fetching results
  */
 
 import { useBetStore } from '@/stores/bet'
+import type { BetData } from '@/types/bet'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api'
+
+/**
+ * Fetch all submitted bets (for results view)
+ */
+export async function getBets(): Promise<BetData[]> {
+  const response = await fetch(`${API_BASE_URL}/bets`, {
+    method: 'GET',
+    headers: { Accept: 'application/json' },
+  })
+
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}))
+    const message = (body as { error?: string }).error || response.statusText
+    throw new Error(message)
+  }
+
+  return response.json() as Promise<BetData[]>
+}
 
 /**
  * Submit bet data to the backend API
@@ -19,26 +32,23 @@ export async function submitBet(): Promise<void> {
   const betStore = useBetStore()
   const betData = betStore.getBetDataForAPI()
 
-  try {
-    const response = await fetch(`${API_BASE_URL}/bets`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(betData),
-    })
+  const response = await fetch(`${API_BASE_URL}/bets`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(betData),
+  })
 
-    if (!response.ok) {
-      throw new Error(`API error: ${response.statusText}`)
-    }
-
-    const result = await response.json()
-    console.log('Bet submitted successfully:', result)
-    return result
-  } catch (error) {
-    console.error('Failed to submit bet:', error)
-    throw error
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}))
+    const message = (body as { error?: string }).error || response.statusText
+    throw new Error(message)
   }
+
+  const result = await response.json()
+  console.log('Bet submitted successfully:', result)
+  return result
 }
 
 /**
