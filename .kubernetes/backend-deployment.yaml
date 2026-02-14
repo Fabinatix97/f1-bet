@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: f1-bet/backend:latest
+          image: ghcr.io/fabinatix97/f1-bet/backend:latest
           ports:
             - containerPort: 3000
           env:
