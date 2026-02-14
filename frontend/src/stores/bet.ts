@@ -4,6 +4,7 @@ import type { BetData, MainBets, SideBets, StatementBets } from '@/types/bet'
 import { teams } from '@/data/teams'
 
 const STORAGE_KEY = 'f1-bet-store'
+const BET_SUBMITTED_KEY = 'f1-bet-submitted'
 
 // Default values
 const defaultMainBets: MainBets = {
@@ -38,6 +39,17 @@ export const useBetStore = defineStore('bet', () => {
     sideBets: { ...defaultSideBets },
     statementBets: { ...defaultStatementBets },
   })
+
+  const betSubmitted = ref(localStorage.getItem(BET_SUBMITTED_KEY) === 'true')
+
+  const setBetSubmitted = (value: boolean) => {
+    betSubmitted.value = value
+    if (value) {
+      localStorage.setItem(BET_SUBMITTED_KEY, 'true')
+    } else {
+      localStorage.removeItem(BET_SUBMITTED_KEY)
+    }
+  }
 
   // Computed getters for easier access (backward compatibility)
   const userName = computed({
@@ -356,7 +368,9 @@ export const useBetStore = defineStore('bet', () => {
       sideBets: { ...defaultSideBets },
       statementBets: { ...defaultStatementBets },
     }
+    betSubmitted.value = false
     localStorage.removeItem(STORAGE_KEY)
+    localStorage.removeItem(BET_SUBMITTED_KEY)
   }
 
   /**
@@ -402,6 +416,8 @@ export const useBetStore = defineStore('bet', () => {
   return {
     // Reactive state
     betData,
+    betSubmitted,
+    setBetSubmitted,
     // Computed getters (backward compatibility)
     userName,
     selectedDriver,

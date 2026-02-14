@@ -15,6 +15,9 @@ const isMainBetActive = computed(
 const isSideBetActive = computed(
   () => route.path === '/sidebet' || route.path.startsWith('/sidebet/'),
 )
+const isResultsActive = computed(
+  () => route.path === '/results' || route.path.startsWith('/results/'),
+)
 
 const handleSubmitClick = (e: Event) => {
   e.preventDefault()
@@ -45,7 +48,19 @@ const handleSubmitClick = (e: Event) => {
         <Icon icon="mdi:order-checkbox-ascending" class="text-2xl" />
         Nebenwette
       </RouterLink>
+      <RouterLink
+        v-if="betStore.betSubmitted"
+        to="/results"
+        :class="[
+          'px-4 py-2 rounded-full flex flex-col items-center transition-colors',
+          isResultsActive ? 'bg-[#E10600] text-slate-100' : 'text-[#8888B7] hover:text-slate-100',
+        ]"
+      >
+        <Icon icon="mdi:chart-box-outline" class="text-2xl" />
+        Zur Auswertung
+      </RouterLink>
       <button
+        v-else
         @click="handleSubmitClick"
         :class="[
           'px-4 py-2 rounded-full flex flex-col items-center transition-colors',

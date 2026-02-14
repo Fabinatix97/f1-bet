@@ -28,6 +28,7 @@ const handleSubmit = async () => {
 
   try {
     await submitBet()
+    betStore.setBetSubmitted(true)
     submitSuccess.value = true
     // Close dialog after 2 seconds on success
     setTimeout(() => {
