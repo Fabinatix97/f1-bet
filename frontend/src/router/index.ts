@@ -91,11 +91,6 @@ const router = createRouter({
       ],
     },
     {
-      path: '/submit',
-      name: 'submit',
-      component: () => import('@/views/SubmitView.vue'),
-    },
-    {
       path: '/results',
       name: 'results',
       component: ResultsView,
