@@ -3,7 +3,7 @@ import NavButtons from '@/components/NavButtons.vue'
 </script>
 
 <template>
-  <main class="p-6">
+  <main class="p-6 mb-14">
     <h1>Aufbau</h1>
     <p>Diese Umfrage gliedert sich in zwei Abschnitte: eine Hauptwette und eine Nebenwette.</p>
     <p>
