@@ -57,6 +57,12 @@ const allStatementsAnswered = computed(() => {
 </script>
 
 <template>
+  <div class="flex justify-end">
+    <div class="rounded-lg px-2 font-bold text-white bg-[#5B5B92]">
+      jeweils 2 p.
+    </div>
+  </div>
+
   <h1>Wahr oder falsch?</h1>
 
   <div v-for="statement in statements" :key="statement.id" class="mb-16">

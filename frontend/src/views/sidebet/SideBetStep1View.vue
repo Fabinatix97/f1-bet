@@ -26,6 +26,12 @@ const selectDriver = (driverId: number) => {
 </script>
 
 <template>
+  <div class="flex justify-end">
+    <div class="rounded-lg px-2 font-bold text-white bg-[#5B5B92]">
+      4 p.
+    </div>
+  </div>
+
   <h1>Welche beiden anderen Fahrer schaffen es in die Top 3?</h1>
 
   <div class="grid grid-cols-2 gap-4">

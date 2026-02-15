@@ -14,6 +14,12 @@ const selectTeam = (teamId: number) => {
 </script>
 
 <template>
+  <div class="flex justify-end">
+    <div class="rounded-lg px-2 font-bold text-white bg-[#5B5B92]">
+      2 p.
+    </div>
+  </div>
+
   <h1>Welches der beiden neuen Werksteams (Audi vs. Cadillac) holt mehr Punkte?</h1>
 
   <div class="grid grid-cols-2 gap-4">

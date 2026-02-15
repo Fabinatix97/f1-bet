@@ -35,6 +35,12 @@ const selectDriver = (teamId: number, driverId: number) => {
 </script>
 
 <template>
+  <div class="flex justify-end">
+    <div class="rounded-lg px-2 font-bold text-white bg-[#5B5B92]">
+      jeweils 2 p.
+    </div>
+  </div>
+
   <h1>Wer ist der bessere Fahrer in jedem Team?</h1>
 
   <div class="space-y-6">
