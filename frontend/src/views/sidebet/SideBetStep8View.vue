@@ -72,5 +72,9 @@ const selectDriver = (teamId: number, driverId: number) => {
     </div>
   </div>
 
-  <NavButtons :selected="allTeamsSelected" back-route="/sidebet/7" />
+  <NavButtons
+    :selected="betStore.isComplete && !betStore.betSubmitted"
+    back-route="/sidebet/7"
+    show-finish-button
+  />
 </template>
