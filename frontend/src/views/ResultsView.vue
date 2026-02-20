@@ -5,7 +5,6 @@ import { getMockBets } from '@/data/mockBets'
 import type { BetData } from '@/types/bet'
 import Pagination from '@/components/Pagination.vue'
 
-// Configuration: Change this number to match your total number of result views
 const TOTAL_RESULTS = 10
 
 const betData = ref<BetData[]>([])
@@ -16,7 +15,7 @@ onMounted(async () => {
     betData.value = await getBets()
   } catch (err) {
     loadError.value = err instanceof Error ? err.message : 'Failed to load bets'
-    // Fallback to mock data when API is unavailable (e.g. dev without backend)
+    // Fallback to mock data when API is unavailable
     betData.value = await getMockBets()
   }
 })
@@ -25,7 +24,6 @@ onMounted(async () => {
 <template>
   <div class="min-h-screen flex flex-col">
     <main class="flex-1 p-6">
-      <!-- Content Area -->
       <div class="mb-24">
         <RouterView :bet-data="betData" />
       </div>

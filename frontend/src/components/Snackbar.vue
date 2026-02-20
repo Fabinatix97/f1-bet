@@ -7,7 +7,6 @@ const { message, type, visible } = storeToRefs(snackbar)
 </script>
 
 <template>
-  <!-- M3 Snackbar: bottom of screen, single line, optional icon, auto-dismiss -->
   <Transition name="snackbar">
     <div
       v-if="visible"

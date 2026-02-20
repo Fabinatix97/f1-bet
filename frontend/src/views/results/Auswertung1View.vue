@@ -83,7 +83,6 @@ const tableData = computed(() => {
       <Bar :data="chartData" :options="barChartOptions" />
     </div>
 
-    <!-- Table showing user votes -->
     <div class="mt-6 overflow-x-auto">
       <table class="w-full border-collapse">
         <thead>

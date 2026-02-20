@@ -44,28 +44,23 @@ const handleClose = () => {
 </script>
 
 <template>
-  <!-- Backdrop -->
   <Transition name="fade">
     <div
       v-if="isOpen"
       class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
       @click="handleClose"
     >
-      <!-- Dialog -->
       <div class="bg-[#2D2D46] rounded-2xl p-6 max-w-md w-full shadow-2xl" @click.stop>
-        <!-- Header -->
         <div class="flex items-center justify-between mb-4">
           <h2 class="text-2xl font-bold text-white">Wette abschicken?</h2>
         </div>
 
-        <!-- Content -->
         <div class="text-slate-300 text-sm">
           <p>
             Deine Wetten werden endgültig eingereicht und können danach nicht mehr geändert werden.
           </p>
         </div>
 
-        <!-- Actions -->
         <div class="flex gap-3 mt-6">
           <button
             @click="handleClose"

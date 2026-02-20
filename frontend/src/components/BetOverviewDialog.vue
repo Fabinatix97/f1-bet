@@ -16,7 +16,6 @@ const emit = defineEmits<{
 const betStore = useBetStore()
 const router = useRouter()
 
-// Define all bets
 const bets = computed(() => [
   {
     id: 'driverChampion',
@@ -110,13 +109,6 @@ const bets = computed(() => [
   },
 ])
 
-// Calculate number of columns (4-5) based on number of bets
-const gridColumns = computed(() => {
-  const count = bets.value.length
-  // Use 5 columns if we have 15+ bets, otherwise 4
-  return count >= 15 ? 5 : 4
-})
-
 const handleClose = () => {
   emit('close')
 }
@@ -132,16 +124,13 @@ const handleBetClick = (
 </script>
 
 <template>
-  <!-- Backdrop -->
   <Transition name="fade">
     <div
       v-if="isOpen"
       class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
       @click="handleClose"
     >
-      <!-- Dialog -->
       <div class="bg-[#2D2D46] rounded-2xl p-6 max-w-lg w-full shadow-2xl" @click.stop>
-        <!-- Header -->
         <div class="flex items-center justify-between mb-4">
           <h2 class="text-2xl font-bold text-slate-100">Übersicht</h2>
           <button
@@ -152,7 +141,6 @@ const handleBetClick = (
           </button>
         </div>
 
-        <!-- Grid -->
         <div class="grid grid-cols-4 gap-2">
           <div
             v-for="bet in bets"
@@ -174,7 +162,6 @@ const handleBetClick = (
           </div>
         </div>
 
-        <!-- Legend -->
         <div class="mt-4 flex items-center justify-center gap-4 text-sm">
           <div class="flex items-center gap-2">
             <div class="w-4 h-4 rounded bg-[#E10600] border-2 border-[#E10600]"></div>

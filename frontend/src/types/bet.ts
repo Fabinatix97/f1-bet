@@ -1,21 +1,16 @@
-/**
- * Type definitions for bet data
- * This structure is designed to be easily serializable for API calls
- */
-
 export interface MainBets {
-  driverChampion: number | null // Driver ID
-  teamChampion: number | null // Team ID
+  driverChampion: number | null
+  teamChampion: number | null
 }
 
 export interface SideBets {
-  top3Drivers: number[] // Array of exactly 2 driver IDs
-  top3Teams: number[] // Array of exactly 2 team IDs
-  firstRaceWinner: number | null // Driver ID
-  lastPlaceTeam: number | null // Team ID
-  mostDNFsDriver: number | null // Driver ID
-  betterNewcomerTeam: number | null // Team ID
-  betterDriverPerTeam: Record<number, number> // Map of teamId -> driverId (better driver in each team)
+  top3Drivers: number[]
+  top3Teams: number[]
+  firstRaceWinner: number | null
+  lastPlaceTeam: number | null
+  mostDNFsDriver: number | null
+  betterNewcomerTeam: number | null
+  betterDriverPerTeam: Record<number, number>
 }
 
 export interface StatementBets {

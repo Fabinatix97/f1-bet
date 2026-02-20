@@ -9,7 +9,6 @@ const betStore = useBetStore()
 
 const betterDriverPerTeam = computed(() => betStore.betterDriverPerTeam)
 
-// Get drivers for each team
 const teamsWithDrivers = computed(() => {
   return teams.map((team) => {
     const teamDrivers = drivers.filter((driver) => driver.teamId === team.id)
@@ -18,11 +17,6 @@ const teamsWithDrivers = computed(() => {
       drivers: teamDrivers,
     }
   })
-})
-
-// Check if all teams have a selection
-const allTeamsSelected = computed(() => {
-  return teams.every((team) => betterDriverPerTeam.value[team.id] !== undefined)
 })
 
 const getSelectedDriverForTeam = (teamId: number): number | null => {

@@ -7,7 +7,6 @@ const props = defineProps<{
   betData: BetData[]
 }>()
 
-// Get Audi and Cadillac teams
 const audiTeam = teams.find((t) => t.id === 9)!
 const cadillacTeam = teams.find((t) => t.id === 10)!
 
@@ -55,7 +54,6 @@ const cadillacUsers = computed(() => {
   <div>
     <h2>Welches der beiden neuen Werksteams (Audi vs. Cadillac) holt mehr Punkte?</h2>
 
-    <!-- Team Cards -->
     <div class="mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-center">
       <!-- Audi Card -->
       <div class="rounded-lg overflow-hidden border-2" :style="{ borderColor: audiTeam.color }">

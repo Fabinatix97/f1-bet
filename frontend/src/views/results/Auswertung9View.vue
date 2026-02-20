@@ -8,7 +8,6 @@ const props = defineProps<{
   betData: BetData[]
 }>()
 
-// Get teams with their drivers
 const teamsWithDrivers = computed(() => {
   return teams.map((team) => {
     const teamDrivers = drivers.filter((driver) => driver.teamId === team.id)
@@ -19,7 +18,6 @@ const teamsWithDrivers = computed(() => {
   })
 })
 
-// Calculate vote counts per driver per team
 const teamDriverVotes = computed(() => {
   const result = new Map<number, Map<number, { count: number; users: string[] }>>()
 
@@ -51,7 +49,6 @@ const teamDriverVotes = computed(() => {
   return result
 })
 
-// Get vote data for a specific team and driver
 const getVoteData = (teamId: number, driverId: number) => {
   const teamVotes = teamDriverVotes.value.get(teamId)
   if (!teamVotes) return { count: 0, users: [] }

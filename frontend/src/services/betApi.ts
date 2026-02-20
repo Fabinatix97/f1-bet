@@ -1,11 +1,6 @@
-/**
- * API service for bet submission and fetching results
- */
-
 import { useBetStore } from '@/stores/bet'
 import type { BetData } from '@/types/bet'
 
-// Use relative /api in production (same origin); set VITE_API_BASE_URL=http://localhost:3000/api for local dev
 const API_BASE_URL =
   typeof import.meta.env.VITE_API_BASE_URL === 'string' && import.meta.env.VITE_API_BASE_URL
     ? import.meta.env.VITE_API_BASE_URL
@@ -78,25 +73,4 @@ export async function deleteBetByUserName(userName: string): Promise<{ deleted: 
   }
 
   return response.json() as Promise<{ deleted: boolean }>
-}
-
-/**
- * Example: Submit bet when user completes all bets
- * You could call this from ResultsView or a completion screen
- */
-export async function submitBetIfComplete(): Promise<boolean> {
-  const betStore = useBetStore()
-
-  if (!betStore.isComplete) {
-    console.warn('Cannot submit: bets are not complete')
-    return false
-  }
-
-  try {
-    await submitBet()
-    return true
-  } catch (error) {
-    console.error('Failed to submit bet:', error)
-    return false
-  }
 }

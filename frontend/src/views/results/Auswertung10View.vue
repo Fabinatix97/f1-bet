@@ -6,9 +6,6 @@ const props = defineProps<{
   betData: BetData[]
 }>()
 
-/**
- * Statement labels (only text, no users here anymore)
- */
 const statementMapping = {
   allTeamsAtLeast10Points: {
     statement: 'Jedes Team holt in der gesamten Saison mindestens 10 Punkte.',
@@ -32,9 +29,6 @@ const statementMapping = {
 
 type StatementKey = keyof typeof statementMapping
 
-/**
- * Compute grouped users dynamically from betData
- */
 const groupedStatements = computed(() => {
   return (Object.keys(statementMapping) as StatementKey[]).map((key) => {
     const trueUsers: string[] = []

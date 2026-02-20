@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 
 const props = defineProps<{
   totalPages: number
-  routePattern: string // e.g., '/results'
+  routePattern: string
 }>()
 
 const route = useRoute()
@@ -30,7 +30,6 @@ const goToPage = (pageNumber: number) => {
   }
 }
 
-// Generate array of all page numbers
 const allPages = Array.from({ length: props.totalPages }, (_, i) => i + 1)
 
 const updateScrollIndicators = () => {
@@ -41,7 +40,6 @@ const updateScrollIndicators = () => {
   showRightGradient.value = scrollLeft < scrollWidth - clientWidth - 1
 }
 
-// Scroll active button into view when route changes
 watch(currentPage, () => {
   nextTick(() => {
     if (scrollContainer.value) {
@@ -54,7 +52,6 @@ watch(currentPage, () => {
           inline: 'center',
         })
       }
-      // Update indicators after scroll
       setTimeout(updateScrollIndicators, 300)
     }
   })
@@ -64,9 +61,7 @@ onMounted(() => {
   if (scrollContainer.value) {
     updateScrollIndicators()
     scrollContainer.value.addEventListener('scroll', updateScrollIndicators)
-    // Also check on resize
     window.addEventListener('resize', updateScrollIndicators)
-    // Initial scroll to center active button
     nextTick(() => {
       const buttons = scrollContainer.value?.querySelectorAll('button')
       const activeButton = buttons?.[currentPage.value - 1] as HTMLElement
@@ -93,19 +88,16 @@ onUnmounted(() => {
 <template>
   <div class="fixed bottom-6 left-6 right-6 z-50 flex justify-center">
     <div class="relative w-fit max-w-full">
-      <!-- Left Gradient Overlay -->
       <div
         v-if="showLeftGradient"
         class="absolute left-0 top-0 bottom-0 w-12 bg-linear-to-r from-[#14141E] to-transparent pointer-events-none z-10 rounded-l-full"
       ></div>
 
-      <!-- Right Gradient Overlay -->
       <div
         v-if="showRightGradient"
         class="absolute right-0 top-0 bottom-0 w-12 bg-linear-to-l from-[#14141E] to-transparent pointer-events-none z-10 rounded-r-full"
       ></div>
 
-      <!-- Scrollable Container -->
       <div
         ref="scrollContainer"
         class="w-fit max-w-full bg-[#14141E]/95 backdrop-blur-sm py-3 px-3 rounded-full overflow-x-auto scrollbar-hide relative"
@@ -132,12 +124,12 @@ onUnmounted(() => {
 
 <style scoped>
 .scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 @media (max-width: 214px) {

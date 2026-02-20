@@ -6,7 +6,6 @@ import { teams } from '@/data/teams'
 const STORAGE_KEY = 'f1-bet-store'
 const BET_SUBMITTED_KEY = 'f1-bet-submitted'
 
-// Default values
 const defaultMainBets: MainBets = {
   driverChampion: null,
   teamChampion: null,
@@ -32,7 +31,6 @@ const defaultStatementBets: StatementBets = {
 }
 
 export const useBetStore = defineStore('bet', () => {
-  // Structured state - single reactive object
   const betData = ref<BetData>({
     userName: '',
     mainBets: { ...defaultMainBets },
@@ -388,7 +386,6 @@ export const useBetStore = defineStore('bet', () => {
    * Check if all bets are completed
    */
   const isComplete = computed(() => {
-    // Check if all teams have a better driver selected
     const allTeamsHaveBetterDriver = teams.every(
       (team) => betData.value.sideBets.betterDriverPerTeam[team.id] !== undefined,
     )
