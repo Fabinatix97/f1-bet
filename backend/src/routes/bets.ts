@@ -1,5 +1,5 @@
 import { Router, type Request, type Response } from 'express'
-import { getAllBets, saveBet } from '../store/betStore.js'
+import { getAllBets, saveBet, deleteBetByUserName } from '../store/betStore.js'
 import type { BetData } from '../types/bet.js'
 
 const router = Router()
@@ -49,6 +49,31 @@ router.post('/', async (req: Request, res: Response) => {
     }
     console.error('POST /api/bets error:', err)
     res.status(500).json({ error: 'Failed to save bet' })
+  }
+})
+
+/**
+ * DELETE /api/bets/:userName – remove a user's bet.
+ */
+router.delete('/:userName', async (req: Request, res: Response) => {
+  const userName = decodeURIComponent(req.params.userName)
+  if (!userName.trim()) {
+    return res.status(400).json({ error: 'userName is required' })
+  }
+
+  try {
+    const result = await deleteBetByUserName(userName)
+    if (!result.deleted) {
+      return res.status(404).json({ error: 'No bet found for this user' })
+    }
+    res.json({ message: 'Bet deleted', deleted: true })
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Failed to delete bet'
+    if (message.includes('required')) {
+      return res.status(400).json({ error: message })
+    }
+    console.error('DELETE /api/bets/:userName error:', err)
+    res.status(500).json({ error: 'Failed to delete bet' })
   }
 })
 

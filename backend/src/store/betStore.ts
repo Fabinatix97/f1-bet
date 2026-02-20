@@ -61,3 +61,23 @@ export async function saveBet(bet: BetData): Promise<{ created: boolean }> {
   await writeBetsFile(bets)
   return { created: true }
 }
+
+export async function deleteBetByUserName(userName: string): Promise<{ deleted: boolean }> {
+  const normalized = userName.trim()
+  if (!normalized) {
+    throw new Error('userName is required')
+  }
+
+  const bets = await readBetsFile()
+  const index = bets.findIndex(
+    (b) => b.userName.trim().toLowerCase() === normalized.toLowerCase()
+  )
+
+  if (index < 0) {
+    return { deleted: false }
+  }
+
+  bets.splice(index, 1)
+  await writeBetsFile(bets)
+  return { deleted: true }
+}

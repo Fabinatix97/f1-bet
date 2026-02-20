@@ -56,6 +56,31 @@ export async function submitBet(): Promise<void> {
 }
 
 /**
+ * Delete a user's submitted bet
+ */
+export async function deleteBetByUserName(userName: string): Promise<{ deleted: boolean }> {
+  const encoded = encodeURIComponent(userName.trim())
+  const response = await fetch(`${API_BASE_URL}/bets/${encoded}`, {
+    method: 'DELETE',
+    headers: { Accept: 'application/json' },
+  })
+
+  if (response.status === 404) {
+    const body = await response.json().catch(() => ({}))
+    const message = (body as { error?: string }).error || 'No bet found for this user'
+    throw new Error(message)
+  }
+
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}))
+    const message = (body as { error?: string }).error || response.statusText
+    throw new Error(message)
+  }
+
+  return response.json() as Promise<{ deleted: boolean }>
+}
+
+/**
  * Example: Submit bet when user completes all bets
  * You could call this from ResultsView or a completion screen
  */

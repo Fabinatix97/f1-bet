@@ -16,6 +16,7 @@ app.get('/api/health', (_req, res) => {
 
 app.listen(port, () => {
   console.log(`F1 Bet API listening on http://localhost:${port}`)
-  console.log(`  POST /api/bets – submit bet`)
-  console.log(`  GET  /api/bets – get all bets (results)`)
+  console.log(`  POST   /api/bets – submit bet`)
+  console.log(`  GET    /api/bets – get all bets (results)`)
+  console.log(`  DELETE /api/bets/:userName – delete user bet (admin)`)
 })

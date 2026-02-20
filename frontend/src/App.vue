@@ -5,7 +5,9 @@ import TabBar from '@/components/TabBar.vue'
 import Snackbar from '@/components/Snackbar.vue'
 
 const route = useRoute()
-const showTabBar = computed(() => route.path !== '/')
+const showTabBar = computed(
+  () => route.path !== '/' && !route.path.startsWith('/admin')
+)
 </script>
 
 <template>
