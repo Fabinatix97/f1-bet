@@ -11,6 +11,7 @@ function isValidBetData(body: unknown): body is BetData {
   if (!b.mainBets || typeof b.mainBets !== 'object') return false
   if (!b.sideBets || typeof b.sideBets !== 'object') return false
   if (!b.statementBets || typeof b.statementBets !== 'object') return false
+  if (b.submittedAt !== undefined && typeof b.submittedAt !== 'string') return false
   return true
 }
 

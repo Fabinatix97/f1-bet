@@ -378,7 +378,10 @@ export const useBetStore = defineStore('bet', () => {
    * This can be used when you're ready to send data to your backend
    */
   const getBetDataForAPI = (): BetData => {
-    return { ...betData.value }
+    return {
+      ...betData.value,
+      submittedAt: new Date().toISOString(),
+    }
   }
 
   /**

@@ -27,4 +27,5 @@ export interface BetData {
   mainBets: MainBets
   sideBets: SideBets
   statementBets: StatementBets
+  submittedAt?: string
 }
