@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia'
 import { useSnackbarStore } from '@/stores/snackbar'
 
 const snackbar = useSnackbarStore()
-const { message, type, visible } = storeToRefs(snackbar)
+const { message, visible } = storeToRefs(snackbar)
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const { message, type, visible } = storeToRefs(snackbar)
       v-if="visible"
       role="status"
       aria-live="polite"
-      class="fixed left-4 right-4 bottom-20 z-[60] flex items-center gap-3 min-h-14 px-4 py-3 rounded-md shadow-lg max-w-[600px] mx-auto bg-slate-100 text-[#14141E]"
+      class="fixed left-4 right-4 bottom-20 z-60 flex items-center gap-3 min-h-14 px-4 py-3 rounded-md shadow-lg max-w-150 mx-auto bg-slate-100 text-[#14141E]"
     >
       <span class="text-sm font-medium flex-1">{{ message }}</span>
     </div>
