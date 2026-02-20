@@ -63,14 +63,7 @@ const handleClose = () => {
       <div class="bg-[#2D2D46] rounded-2xl p-6 max-w-md w-full shadow-2xl" @click.stop>
         <!-- Header -->
         <div class="flex items-center justify-between mb-4">
-          <h2 class="text-2xl font-bold text-slate-100">Wette abschicken</h2>
-          <button
-            v-if="!isSubmitting"
-            @click="handleClose"
-            class="text-slate-400 hover:text-slate-100 transition-colors"
-          >
-            <Icon icon="mdi:close" class="text-2xl" />
-          </button>
+          <h2 class="text-2xl font-bold text-slate-100">Wette abschicken?</h2>
         </div>
 
         <!-- Content -->
