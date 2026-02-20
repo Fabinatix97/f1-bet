@@ -23,8 +23,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col p-6">
-    <main class="flex-1 mt-6">
+  <div class="min-h-screen flex flex-col">
+    <main class="flex-1 p-6">
       <!-- Content Area -->
       <div class="mb-24">
         <RouterView :bet-data="betData" />
