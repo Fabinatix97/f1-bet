@@ -16,6 +16,7 @@ spec:
       containers:
         - name: backend
           image: ghcr.io/fabinatix97/f1-bet/backend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           env:

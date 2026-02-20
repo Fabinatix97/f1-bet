@@ -16,6 +16,7 @@ spec:
       containers:
         - name: frontend
           image: ghcr.io/fabinatix97/f1-bet/frontend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           readinessProbe:
