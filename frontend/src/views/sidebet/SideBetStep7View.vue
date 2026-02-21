@@ -42,6 +42,18 @@ const statements = computed(() => [
     value: betStore.verstappenResignsOrTransfers,
     toggle: (val: boolean) => betStore.toggleVerstappenResignsOrTransfers(val),
   },
+  {
+    id: 'newTop4Team',
+    text: 'Ein Team, welches nicht zu den üblichen Verdächtigen (Red Bull, McLaren, Mercedes, Ferrari) gehört, beendet die Saison in den Top 4.',
+    value: betStore.newTop4Team,
+    toggle: (val: boolean) => betStore.toggleNewTop4Team(val),
+  },
+  {
+    id: 'defectsAtSeasonStart',
+    text: 'Beim Saisonauftakt in Australien werden aufgrund der komplexen Hybrid-Antriebe mindestens drei Autos mit technischem Defekt ausscheiden.',
+    value: betStore.defectsAtSeasonStart,
+    toggle: (val: boolean) => betStore.toggleDefectsAtSeasonStart(val),
+  }
 ])
 
 const allStatementsAnswered = computed(() => {
@@ -51,7 +63,8 @@ const allStatementsAnswered = computed(() => {
     betStore.multipleRaceWinners !== null &&
     betStore.fiveTeamsWinRaces !== null &&
     betStore.hulkWins !== null &&
-    betStore.verstappenResignsOrTransfers !== null
+    betStore.verstappenResignsOrTransfers !== null &&
+    betStore.newTop4Team !== null
   )
 })
 </script>

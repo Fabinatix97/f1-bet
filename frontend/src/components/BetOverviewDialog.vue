@@ -102,6 +102,18 @@ const bets = computed(() => [
     route: '/sidebet/7',
   },
   {
+    id: 'newTop4Team',
+    label: 'Neues Top 4 Team',
+    completed: betStore.newTop4Team !== null,
+    route: '/sidebet/7',
+  },
+  {
+    id: 'defectsAtSeasonStart',
+    label: 'Defekte zum Saisonstart',
+    completed: betStore.defectsAtSeasonStart !== null,
+    route: '/sidebet/7',
+  },
+  {
     id: 'betterDriverPerTeam',
     label: 'Besserer Fahrer/Team',
     completed: teams.every((team) => betStore.betterDriverPerTeam[team.id] !== undefined),

@@ -28,6 +28,8 @@ const defaultStatementBets: StatementBets = {
   fiveTeamsWinRaces: null,
   hulkWins: null,
   verstappenResignsOrTransfers: null,
+  newTop4Team: null,
+  defectsAtSeasonStart: null,
 }
 
 export const useBetStore = defineStore('bet', () => {
@@ -157,6 +159,20 @@ export const useBetStore = defineStore('bet', () => {
     },
   })
 
+  const newTop4Team = computed({
+    get: () => betData.value.statementBets.newTop4Team,
+    set: (value: boolean | null) => {
+      betData.value.statementBets.newTop4Team = value
+    },
+  })
+
+  const defectsAtSeasonStart = computed({
+    get: () => betData.value.statementBets.defectsAtSeasonStart,
+    set: (value: boolean | null) => {
+      betData.value.statementBets.defectsAtSeasonStart = value
+    },
+  })
+
   // Load from localStorage
   const loadFromStorage = () => {
     try {
@@ -189,10 +205,15 @@ export const useBetStore = defineStore('bet', () => {
           betData.value.statementBets.multipleRaceWinners = data.multipleRaceWinners
         if (data.fiveTeamsWinRaces !== undefined)
           betData.value.statementBets.fiveTeamsWinRaces = data.fiveTeamsWinRaces
-        if (data.hulkWins !== undefined) betData.value.statementBets.hulkWins = data.hulkWins
+        if (data.hulkWins !== undefined)
+          betData.value.statementBets.hulkWins = data.hulkWins
         if (data.verstappenResignsOrTransfers !== undefined)
           betData.value.statementBets.verstappenResignsOrTransfers =
             data.verstappenResignsOrTransfers
+        if (data.newTop4Team !== undefined)
+          betData.value.statementBets.newTop4Team = data.newTop4Team
+        if (data.defectsAtSeasonStart !== undefined)
+          betData.value.statementBets.defectsAtSeasonStart = data.defectsAtSeasonStart
 
         // Also check for new format
         if (data.mainBets) betData.value.mainBets = { ...defaultMainBets, ...data.mainBets }
@@ -358,6 +379,20 @@ export const useBetStore = defineStore('bet', () => {
     )
   }
 
+  const toggleNewTop4Team = (value: boolean) => {
+    betData.value.statementBets.newTop4Team = toggleStatement(
+      betData.value.statementBets.newTop4Team,
+      value,
+    )
+  }
+
+  const toggleDefectsAtSeasonStart = (value: boolean) => {
+    betData.value.statementBets.defectsAtSeasonStart = toggleStatement(
+      betData.value.statementBets.defectsAtSeasonStart,
+      value,
+    )
+  }
+
   // Utility functions
   const clearAll = () => {
     betData.value = {
@@ -406,7 +441,9 @@ export const useBetStore = defineStore('bet', () => {
       betData.value.statementBets.multipleRaceWinners !== null &&
       betData.value.statementBets.fiveTeamsWinRaces !== null &&
       betData.value.statementBets.hulkWins !== null &&
-      betData.value.statementBets.verstappenResignsOrTransfers !== null
+      betData.value.statementBets.verstappenResignsOrTransfers !== null &&
+      betData.value.statementBets.newTop4Team !== null &&
+      betData.value.statementBets.defectsAtSeasonStart !== null
     )
   })
 
@@ -435,6 +472,8 @@ export const useBetStore = defineStore('bet', () => {
     fiveTeamsWinRaces,
     hulkWins,
     verstappenResignsOrTransfers,
+    newTop4Team,
+    defectsAtSeasonStart,
     // Actions
     setUserName,
     toggleSelectedDriver,
@@ -452,6 +491,8 @@ export const useBetStore = defineStore('bet', () => {
     toggleFiveTeamsWinRaces,
     toggleHulkWins,
     toggleVerstappenResignsOrTransfers,
+    toggleNewTop4Team,
+    toggleDefectsAtSeasonStart,
     // Utility functions
     clearAll,
     getBetDataForAPI,

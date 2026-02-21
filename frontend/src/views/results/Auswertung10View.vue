@@ -25,6 +25,12 @@ const statementMapping = {
   verstappenResignsOrTransfers: {
     statement: 'Verstappen tritt zurück oder wechselt das Team.',
   },
+  newTop4Team: {
+    statement: 'Ein neues Team erreicht die Top 4.',
+  },
+  defectsAtSeasonStart: {
+    statement: 'Mindestens drei technische Defekte beim Saisonstart.',
+  },
 } as const
 
 type StatementKey = keyof typeof statementMapping

@@ -20,6 +20,8 @@ export interface StatementBets {
   fiveTeamsWinRaces: boolean | null
   hulkWins: boolean | null
   verstappenResignsOrTransfers: boolean | null
+  newTop4Team: boolean | null
+  defectsAtSeasonStart: boolean | null
 }
 
 export interface BetData {

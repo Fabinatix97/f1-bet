@@ -41,6 +41,8 @@ export const mockBets: BetData[] = [
       fiveTeamsWinRaces: true,
       hulkWins: false,
       verstappenResignsOrTransfers: false,
+      newTop4Team: false,
+      defectsAtSeasonStart: false,
     },
   },
   {
@@ -77,6 +79,8 @@ export const mockBets: BetData[] = [
       fiveTeamsWinRaces: true,
       hulkWins: false,
       verstappenResignsOrTransfers: false,
+      newTop4Team: false,
+      defectsAtSeasonStart: false,
     },
   },
   {
@@ -113,6 +117,8 @@ export const mockBets: BetData[] = [
       fiveTeamsWinRaces: false,
       hulkWins: true,
       verstappenResignsOrTransfers: false,
+      newTop4Team: false,
+      defectsAtSeasonStart: false,
     },
   },
   {
@@ -149,6 +155,8 @@ export const mockBets: BetData[] = [
       fiveTeamsWinRaces: true,
       hulkWins: false,
       verstappenResignsOrTransfers: true,
+      newTop4Team: false,
+      defectsAtSeasonStart: true,
     },
   },
   {
@@ -185,6 +193,8 @@ export const mockBets: BetData[] = [
       fiveTeamsWinRaces: true,
       hulkWins: false,
       verstappenResignsOrTransfers: false,
+      newTop4Team: true,
+      defectsAtSeasonStart: false,
     },
   },
   {
@@ -221,6 +231,8 @@ export const mockBets: BetData[] = [
       fiveTeamsWinRaces: true,
       hulkWins: true,
       verstappenResignsOrTransfers: false,
+      newTop4Team: true,
+      defectsAtSeasonStart: true,
     },
   },
 ]
