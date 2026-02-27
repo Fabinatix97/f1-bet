@@ -25,7 +25,7 @@ const handleSubmit = async () => {
 
   try {
     await submitBet()
-    betStore.setBetSubmitted(true)
+    betStore.clearAll()
     emit('close')
     snackbar.show('Erfolgreich abgeschickt', 'success')
   } catch (error) {
