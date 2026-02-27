@@ -14,7 +14,7 @@ const statementMapping = {
     statement: 'Ein neues Team fährt mindestens einmal aufs Podium.',
   },
   multipleRaceWinners: {
-    statement: 'Es gibt mehr als drei verschiedene Rennsieger.',
+    statement: 'Mindestens ein Fahrer gewinnt zum ersten Mal in seiner F1-Karriere.',
   },
   fiveTeamsWinRaces: {
     statement: 'Mindestens fünf Teams gewinnen ein Rennen.',
