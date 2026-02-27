@@ -17,7 +17,7 @@ const voteCounts = computed(() => {
   const counts = new Map<number, number>()
 
   props.betData.forEach((bet) => {
-    const teamId = bet.mainBets.driverChampion
+    const teamId = bet.mainBets.teamChampion
     if (teamId !== null) {
       counts.set(teamId, (counts.get(teamId) || 0) + 1)
     }
@@ -57,7 +57,7 @@ const tableData = computed(() => {
     const count = voteCounts.value.get(team.id) || 0
     if (count > 0) {
       const users = props.betData
-        .filter((bet) => bet.mainBets.driverChampion === team.id)
+        .filter((bet) => bet.mainBets.teamChampion === team.id)
         .map((bet) => bet.userName)
       result.push({
         teamName: team.name,
