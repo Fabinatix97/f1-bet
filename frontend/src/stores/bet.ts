@@ -398,7 +398,12 @@ export const useBetStore = defineStore('bet', () => {
     betData.value = {
       userName: '',
       mainBets: { ...defaultMainBets },
-      sideBets: { ...defaultSideBets },
+      sideBets: {
+        ...defaultSideBets,
+        top3Drivers: [],
+        top3Teams: [],
+        betterDriverPerTeam: {},
+      },
       statementBets: { ...defaultStatementBets },
     }
     betSubmitted.value = false
