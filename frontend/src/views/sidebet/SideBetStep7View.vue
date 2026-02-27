@@ -14,7 +14,7 @@ const statements = computed(() => [
   },
   {
     id: 'newTeamsPodium',
-    text: "Eines der neuen Teams (Audi und/oder Cadillac) fahren mindestens einmal auf's Podium.",
+    text: 'Eines der neuen Teams (Audi und/oder Cadillac) fährt mindestens einmal aufs Podium.',
     value: betStore.newTeamsPodium,
     toggle: (val: boolean) => betStore.toggleNewTeamsPodium(val),
   },
@@ -32,7 +32,7 @@ const statements = computed(() => [
   },
   {
     id: 'hulkWins',
-    text: 'Nico Hülkenberge gewinnt zum ersten Mal ein F1-Rennen und beendet damit seine sieglose Serie.',
+    text: 'Nico Hülkenberg gewinnt zum ersten Mal ein F1-Rennen und beendet damit seine sieglose Serie.',
     value: betStore.hulkWins,
     toggle: (val: boolean) => betStore.toggleHulkWins(val),
   },
