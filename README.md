@@ -98,3 +98,7 @@ f1-bet/
 | `GET`  | `/api/bets`   | List all bets |
 | `POST` | `/api/bets`   | Submit or update a bet (body: `BetData`) |
 | `DELETE` | `/api/bets/:userName` | Delete a user's bet |
+
+## Screenshots
+
+![F1 Bet app screenshots: main screen, explanation, driver/team predictions, true-or-false questions, results charts, and admin view](.github/screenshots.jpg)
